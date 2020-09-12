@@ -1,7 +1,10 @@
 Movie = require('./movieModel');
 
 exports.index = function (req, res) {
+    
+
     Movie.get(function (err, movie) {
+        console.log(movie)
         if (err)
             res.json({
                 status: "error",
@@ -16,6 +19,7 @@ exports.index = function (req, res) {
 };
 
 exports.add = function (req, res) {
+    console.log(req.body? true : false)
     const movie = new Movie();
     movie.name = req.body.name? req.body.name: movie.name;
     movie.year = req.body.year;
@@ -25,7 +29,8 @@ exports.add = function (req, res) {
     movie.save(function (err) {
         if (err)
             res.json(err);
-res.json({
+            
+        res.json({
             message: "New movie Added!",
             data: movie
         });

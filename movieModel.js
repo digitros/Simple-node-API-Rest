@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const movieSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     year: {
         type: String,
-        required: true
+        required: false
     },
     gender: {
         type: String,
-        required: true
+        required: false
     },
     director: {
         type: String,
-        required: true
+        required: false
     },
     created_at: {
         type: Date,
